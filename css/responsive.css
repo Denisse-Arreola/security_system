@@ -1,0 +1,42 @@
+﻿/*( orientation : portrait )*/
+
+
+/*@media (max-width: 800px) and ( orientation : portrait ) {
+    body {
+        height: 600px;
+    }
+
+    main {
+        top: 6%;
+        bottom: 6%;
+        left: 10%;
+        right: 10%;
+        padding: 1rem;
+    }
+
+    .input-group-prepend {
+        display: none;
+    }
+
+
+}*/
+
+@media (max-width: 600px){
+    body {
+        height: 600px;
+    }
+
+    main {
+        top: 6%;
+        bottom: 6%;
+        left: 10%;
+        right: 10%;
+        padding: 1rem;
+    }
+
+    .input-group-prepend {
+        display: none;
+    }
+
+
+}

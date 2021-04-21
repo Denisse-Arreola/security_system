@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="src/js/Icons.js" crossorigin="anonymous"></script>
+    <!--<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>-->
+
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/jquery.min.js"></script>
+
+    <script src="src/js/log.js" charset="ISO-8859-1"></script>
+
+    <title>Login - security system</title>
+</head>
+<body>
+    <main class="bg-light">
+        <i class="fas fa-user-shield text-secondary"></i>
+        <hr />
+        <h2>Security System</h2>
+        <br />
+        <div class="text-danger" id="danger">Wrong user account or password</div>
+        <form id="login-form" action="" onsubmit="login(event)"> <!--onsubmit="login(event)"-->
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-user text-secondary" style="font-size:30px"></i></span>
+                </div>
+                <input type="text" class="form-control" placeholder="Employee number" name="txtEmployee" required>
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-key text-secondary" style="font-size:30px"></i></span>
+                </div>
+                <input type="password" class="form-control" placeholder="Password" name="txtPassword" required>
+            </div>
+            <button type="submit" id="login-btn" class="btn btn-info btn-block">LOGIN</button>
+            <p><u id="logup-link">Log up</u></p>
+        </form>
+
+        <form id="logup-form" action="" onsubmit="logup(event)">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Fisrtname" name="txtName" pattern="[A-Za-z]{2,}" required>
+                <input type="text" class="form-control" placeholder="Lastname" name="txtLast" pattern="[A-Za-z]{2,}" required>
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Employee num" name="txtNum" required>
+                <input type="password" class="form-control" placeholder="Password" pattern="[A-Za-z0-9_]{8,}" 
+                       title="With at least 8 characters and no spaces" name="txtPass" required>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-key text-secondary" style="font-size:24px"></i></span>
+                </div>
+                <input type="password" class="form-control" placeholder="Lab key" name="txtKey" required>
+            </div>
+            <button type="submit" class="btn btn-info btn-block" id="logup-btn">LOG UP</button>
+        </form>
+    </main>
+
+    <script>
+        // ADD-EVENT-LISTENER section
+        let logup_link = document.getElementById("logup-link");
+        let logup_btn = document.getElementById("logup-btn");
+        let login_btn = document.getElementById("login-btn");
+        let login_form = document.getElementById("login-form");
+        let logup_form = document.getElementById("logup-form");
+
+        logup_link.addEventListener("click", function () {
+            login_form.style.display = "none";
+            logup_form.style.display = "block";
+        });
+
+
+        
+
+
+
+    </script>
+</body>
+</html>

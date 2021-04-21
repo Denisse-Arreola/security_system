@@ -1,0 +1,360 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/jquery.min.js"></script>
+    <script src="bootstrap/js/popper.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <script src="src/js/dashboard.js" charset="ISO-8859-1"></script>
+    <script src="src/js/data.js" charset="ISO-8859-1"></script>
+    <script src="src/js/log.js" charset="ISO-8859-1"></script>
+
+    <title>Security System</title>
+</head>
+<body onload="initialize();" class="bg-light">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="180" height="657" viewBox="0 0 180 657">
+        <rect x="0" y="0" width="60" height="657" rx="0" ry="0" fill="#67C3D0" />
+        <rect x="0" y="0" width="180" height="657" rx="40" ry="40" fill="#67C3D0" />
+    </svg>
+
+    <section class="ds-section">
+        <p class="text-info">Welcome 
+            <strong id="username"></strong>
+            <br />
+            <u id="logout">Logout</u>
+        </p>
+        
+        
+
+        <section class="ds-row">
+
+            <section class="bg-white dash">
+
+                <!--Temperature-->
+                <section class="slides">
+                    <section class="row">
+                        <article class="col-sm-9">
+                            <figure class="highcharts-figure">
+                                    <div id="temperature"></div>
+                            </figure>
+                        </article>
+
+                        <article class="col-sm-3 preferences">
+                            <form>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="todayT" name="customRadio" class="custom-control-input">
+                                    <label class="custom-control-label today" for="customRadio1">Today</label>
+                                </div>
+                                <br />
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="yesterdayT" name="customRadio" class="custom-control-input">
+                                    <label class="custom-control-label" for="customRadio2">Yesterday</label>
+                                </div>
+                                <br />
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="weekT" name="customRadio" class="custom-control-input">
+                                    <label class="custom-control-label" for="customRadio3">This week</label>
+                                </div>
+                            </form>
+                        </article>
+                    </section>
+                </section>
+                
+
+                <!--Humidity-->
+                <section class="slides">
+                    <section class="row">
+                        <article class="col-sm-9">
+                            <figure class="highcharts-figure">
+                                    <div id="humidity"></div>
+                            </figure>
+                        </article>
+
+                        <article class="col-sm-3 preferences">
+                            <form>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="todayH" name="customRadio" class="custom-control-input">
+                                    <label class="custom-control-label today" for="customRadio1">Today</label>
+                                </div>
+                                <br />
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="yesterdayH" name="customRadio" class="custom-control-input">
+                                    <label class="custom-control-label" for="customRadio2">Yesterday</label>
+                                </div>
+                                <br />
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="weekH" name="customRadio" class="custom-control-input">
+                                    <label class="custom-control-label" for="customRadio3">This week</label>
+                                </div>
+                            </form>
+                        </article>
+                    </section>
+                </section>
+
+                <!--Motion-->
+                <section class="slides">
+                    <section class="row">
+                        <article class="col-sm-9">
+                            <figure class="highcharts-figure">
+                                    <div id="motion"></div>
+                            </figure>
+                        </article>
+
+                        <article class="col-sm-3 preferences">
+                            <form>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="todayM" name="customRadio" class="custom-control-input">
+                                    <label class="custom-control-label today" for="customRadio1">Today</label>
+                                </div>
+                                <br />
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="yesterdayM" name="customRadio" class="custom-control-input">
+                                    <label class="custom-control-label" for="customRadio2">Yesterday</label>
+                                </div>
+                                <br />
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="weekM" name="customRadio" class="custom-control-input">
+                                    <label class="custom-control-label" for="customRadio3">This week</label>
+                                </div>
+                            </form>
+                            <div>
+                                <hr />
+                                <h6>Alarm: </h6>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-secondary">Last motion detected</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-muted">
+                                        <tr>
+                                            <td><p id="alarm-data"></p></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <br />
+                                <button type="button" class="btn btn-info" id="on">Turn on</button>
+                                <button type="button" class="btn btn-info" id="off">Turn off</button>
+                            </div>
+                        </article>
+                    </section>
+                </section>
+
+            </section>
+
+            <section class="menu bg-white">
+                <article class="col-md-12 temperature dot" id="t">
+                    <h6>Temperature</h6>
+                    <h2 class="text-center p-1" id="lastT"></h2>
+                </article>
+
+                <article class="col-md-12 humidity dot" id="h">
+                    <h6>Humidity</h6>
+                    <h2 class="text-center p-1" id="lastH"></h2>
+                </article>
+
+                <article class="col-md-12 motion dot" id="m">
+                    <h6>Motion</h6>
+                    <h2 class="text-center p-1" id="lastM"></h2>
+                </article>
+            </section>
+            
+
+        </section>
+        
+    </section>
+
+    <script>
+
+        let lab = 0;
+
+        function initialize() {
+
+            let params = new URLSearchParams(
+                {
+                    "session_action": "verify"
+                }
+            ).toString();
+
+            // console.log("http://localhost/IoT_projects/security_system/src/api.php?" + params);
+
+            fetch("http://localhost/IoT_projects/security_system/src/api.php?" + params).
+                then(res => res.json()).
+                then(
+                    data => {
+                        let status = data.status;
+                        if (status) {
+                            lab = data.lab;
+                            document.getElementById("username").innerHTML = data.firstname;
+                            getLast(data.lab);
+                            getData(data.lab, "today");
+                            check_alarm(data.lab);
+                            last_alarm(data.lab);
+                            preferences(1);
+
+                        } else {
+                            location.replace("http://localhost/IoT_projects/security_system/login.html");
+                        }
+                    }
+                )
+        }
+
+
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("slides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+
+        function getLast(lab) {
+            let params = new URLSearchParams(
+                {
+                    "system": "last_data",
+                    "num": lab
+                }
+            ).toString();
+
+            console.log("http://localhost/IoT_projects/security_system/src/api.php?" + params);
+
+            fetch("http://localhost/IoT_projects/security_system/src/api.php?" + params).
+                then(res => res.json()).
+                then(
+                    data => {
+                        let status = data.status;
+                        if (status) {
+                            document.getElementById("lastT").innerHTML = data.temperature + " °C";
+                            document.getElementById("lastH").innerHTML = data.humidity + "%";
+                            document.getElementById("lastM").innerHTML = data.time_M + " hrs";
+
+                        } else {
+                            console.log("Somthing bad");
+                        }
+                    }
+                )
+
+        }
+
+        function preferences(radio) {
+
+            if (radio == 1) {
+                document.getElementById("todayT").checked = true;
+                document.getElementById("todayH").checked = true;
+                document.getElementById("todayM").checked = true;
+
+            } else if (radio == 2) {
+                document.getElementById("yesterdayT").checked = true;
+                document.getElementById("yesterdayH").checked = true;
+                document.getElementById("yesterdayM").checked = true;
+
+            } else if (radio == 3) {
+                document.getElementById("weekT").checked = true;
+                document.getElementById("weekH").checked = true;
+                document.getElementById("weekM").checked = true;
+
+            } else {
+                console.log("Radio error");
+            }
+        }
+        
+    </script>
+
+    <script>
+
+        // ADD-EVENT-LISTENER section
+        let btn_on = document.getElementById("on");
+        let btn_off = document.getElementById("off");
+
+        let btnT = document.getElementById("t");
+        let btnH = document.getElementById("h");
+        let btnM = document.getElementById("m");
+
+        let rd_tT = document.getElementById("todayT");
+        let rd_tH = document.getElementById("todayH");
+        let rd_tM = document.getElementById("todayM");
+
+        let rd_yT = document.getElementById("yesterdayT");
+        let rd_yH = document.getElementById("yesterdayH");
+        let rd_yM = document.getElementById("yesterdayM");
+
+        let rd_wT = document.getElementById("weekT");
+        let rd_wH = document.getElementById("weekH");
+        let rd_wM = document.getElementById("weekM");
+
+        let link_out = document.getElementById("logout");
+
+        btnT.addEventListener("click", event => currentSlide(1));
+        btnH.addEventListener("click", event => currentSlide(2));
+        btnM.addEventListener("click", event => currentSlide(3));
+
+        btn_on.addEventListener("click", event => turn_alarm(lab, true));
+        btn_off.addEventListener("click", event => turn_alarm(lab, false));
+
+        rd_tT.addEventListener("click", event => { preferences(1); getData(lab, "today"); });
+        rd_tH.addEventListener("click", event => { preferences(1); getData(lab, "today"); });
+        rd_tM.addEventListener("click", event => { preferences(1); getData(lab, "today"); });
+
+        rd_yT.addEventListener("click", event => { preferences(2); getData(lab, "yesterday"); });
+        rd_yH.addEventListener("click", event => { preferences(2); getData(lab, "yesterday"); });
+        rd_yM.addEventListener("click", event => { preferences(2); getData(lab, "yesterday"); });
+
+        rd_wT.addEventListener("click", event => { preferences(3); getData(lab, "week"); });
+        rd_wH.addEventListener("click", event => { preferences(3); getData(lab, "week"); });
+        rd_wM.addEventListener("click", event => { preferences(3); getData(lab, "week"); });
+
+        link_out.addEventListener("click", event => {
+            let params = new URLSearchParams(
+                {
+                    "session_action": "session_destroy"
+                }
+            ).toString();
+
+            // console.log("http://localhost/IoT_projects/security_system/src/api.php?" + params);
+
+            fetch("http://localhost/IoT_projects/security_system/src/api.php?" + params).
+                then(res => res.json()).
+                then(
+                    data => {
+                        let status = data.status;
+                        if (status) {
+                            location.replace("http://localhost/IoT_projects/security_system/login.html");
+                        } else {
+                            console.log("something bad");
+                        }
+                    }
+                )
+
+        });
+
+    </script>
+
+</body>
+</html>

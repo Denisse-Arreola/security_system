@@ -1,0 +1,114 @@
+﻿body {
+    width: max-content;
+}
+
+.ds-section {
+    top: 7%;
+    right: 6%;
+    left: 6%;
+    bottom: 7%;
+    position: absolute;
+    border-radius: 40px;
+    background-color: #FAFCFC;
+    box-shadow: 0px 10px 15px -6px rgba(0, 0, 0, 0.20);
+    padding: 2rem 3rem;
+    font-size: 1.5rem;
+}
+
+.ds-row{
+    height:85%;
+    padding-top: 0rem;
+    display: grid;
+    grid-template-columns: 10fr 2fr;
+    grid-gap: 10px;
+}
+
+.menu {
+    box-shadow: 0px 5px 12px -4px rgba(0, 0, 0, 0.16);
+    /*box-shadow: 0px 10px 12px -6px rgba(0, 0, 0, 0.20);*/
+    border-radius: 20px;
+    height: 100%;
+    display:grid;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.dash {
+    box-shadow: 0px 5px 12px -4px rgba(0, 0, 0, 0.16);
+    border-radius: 20px;
+    padding: 1rem 1rem 0 1rem;
+}
+
+.ds-section u {
+    font-size: 0.8rem;
+    color: #BDBDBD;
+    cursor:pointer;
+}
+
+.ds-section u:hover {
+    color: #757575;
+}
+
+.ds-section p {
+    line-height:0.9;
+}
+
+.temperature {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.motion {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.humidity {
+    border-top: solid 1.2px rgba(0, 0, 0, 0.08);
+    border-bottom: solid 1.2px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Sección del carrusel */
+.slides {
+
+}
+
+/* Slideshow container */
+.slideshow {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    background-color: #fff;
+    transition: background-color 0.6s ease;
+    cursor: pointer;
+    padding: 1.2rem;
+    color: #7A7E83;
+}
+
+.active {
+    background-color: #138496;
+    color: white;
+}
+
+.dot:hover {
+    background-color: #1898af;
+    color:white;
+}
+
+.preferences {
+    padding-top: 1rem;
+    font-size: 0.9rem;
+    color: #7A7E83;
+}
+
+.today {
+    background: white;
+}
+
+table {
+    text-align: center;
+}
